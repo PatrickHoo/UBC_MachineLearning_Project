@@ -57,11 +57,15 @@ for Ru=2:0.2:10;  % this is the normalized Ru
         gamma_b_d = Sd/Fading_md;
         gamma_b_i = S_R_interfered/Fading_mi;
 
+        PDF_SD = gamrnd(gamma_a_d,gamma_b_d,1,1);
+        PDF_SI = gamrnd(gamma_a_i,gamma_b_i,6,1);
+
         
         gamma_b_i_best = S_R_interfered_best/Fading_mi;
         gamma_b_i_worst = S_R_interfered_worst/Fading_mi;
-        PDF_SD = gamrnd(gamma_a_d,gamma_b_d,1,1);
-        PDF_SI = gamrnd(gamma_a_i,gamma_b_i,6,1);
+
+
+
 
         PDF_SI_best = gamrnd(gamma_a_i,gamma_b_i_best,6,1);
         PDF_SI_worst = gamrnd(gamma_a_i,gamma_b_i_worst,6,1);
@@ -100,7 +104,7 @@ aAe_mulw=mean(Ae_multi_worst,2)*10^6; %the average of the worst case after runni
 
 Ru=2:0.2:10;
 figure()
-plot(Ru,aAe,'k',Ru,aAeb,'g',Ru,aAew,'r',Ru,aAe_mul,'r--',Ru,aAe_mulb,'g--',Ru,aAe_mulw,'b--');%set the best case is green,the worst line is red
+plot(Ru,aAe,'k',Ru,aAeb,'g',Ru,aAew,'r',Ru,aAe_mul,'r--',Ru,aAe_mulb,'p--',Ru,aAe_mulw,'b--');%set the best case is green,the worst line is red
 
 %plot(Ru,aAe,'k',Ru,aAeb,'g',Ru,aAew,'r');%set the best case is green,the worst line is red
 

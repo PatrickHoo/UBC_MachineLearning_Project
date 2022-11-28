@@ -42,10 +42,13 @@ for Ru=2:0.2:10
         %Calculate log parameters simulation
         udd=1/(r.^a.*(1+(r/g)).^b)*St;
         uii=1./(ri.^a.*(1+(ri/g)).^b)*St;
+
         mdd=log(udd);
         mii=log(uii);
+
         log_ud=lognrnd(mdd,sigmad/Xi,[1,1]);
         log_ui=lognrnd(mii,sigmaI/Xi,[6,1]);
+        
         gammadi=(log_ud)/sum(log_ui);
         
         %Calculate log parameters best-case
